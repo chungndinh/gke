@@ -1,7 +1,4 @@
 FROM alpine:3.14
-LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.20 & PHP 8.0 based on Alpine Linux."
-
 # Install packages and remove default server definition
 RUN apk --no-cache add \
   curl \
