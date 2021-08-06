@@ -1,4 +1,7 @@
 FROM alpine:3.14
+LABEL Maintainer="Tim de Pater <code@trafex.nl>"
+LABEL Description="Lightweight container with Nginx 1.20 & PHP 8.0 based on Alpine Linux."
+
 # Install packages and remove default server definition
 RUN apk --no-cache add \
   curl \
@@ -20,11 +23,14 @@ RUN apk --no-cache add \
   php8-xml \
   php8-xmlreader \
   php8-zlib \
+  php8-tokenizer \
+  php8-xmlwriter \
   supervisor
 
 # Create symlink so programs depending on `php` still function
 RUN ln -s /usr/bin/php8 /usr/bin/php
-
+RUN wget https://phar.phpunit.de/phpunit-9.phar -O /usr/local/bin/phpunit && \
+    chmod +x /usr/local/bin/phpunit
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
