@@ -35,6 +35,7 @@ pipeline {
 						sh "docker push ${DOCKER_IMAGE}:latest"
 					}
 				}
+				sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
 		    }
 	    }
 	    stage('Deploy to K8s') {
@@ -46,7 +47,7 @@ pipeline {
 				echo "Start deployment of Deployment.yaml"
 				step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'Deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 			    echo "Deployment Finished ..."
-				sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
+				
 		    }
 			
 	    }
