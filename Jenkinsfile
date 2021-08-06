@@ -28,7 +28,6 @@ pipeline {
 				}
 				sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} . "
 				sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
-				
 				script {
           			if (GIT_BRANCH ==~ /.*master.*/) {
 						sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest"
@@ -47,8 +46,7 @@ pipeline {
 				echo "Start deployment of Deployment.yaml"
 				step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'Deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 			    echo "Deployment Finished ..."
-				
-		    }
+			}
 			
 	    }
     }
