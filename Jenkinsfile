@@ -21,7 +21,8 @@ pipeline {
 			    sh '/usr/local/bin/phpunit/phpunit --version'
 				sh 'pwd'
 				sh 'ls -ltr'
-				sh '/usr/local/bin/phpunit/phpunit webapp/tests/GumballMachineTest.php'
+				sh 'cd webapp/'
+				sh '/usr/local/bin/phpunit/phpunit /tests'
 		    }
 	    }
 
