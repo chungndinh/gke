@@ -19,7 +19,7 @@ pipeline {
 		    steps {
 			    echo "Testing..."
 			    sh '/usr/local/bin/phpunit/phpunit --version'
-				sh '/usr/local/bin/phpunit/phpunit /tests'
+				sh '/usr/local/bin/phpunit/phpunit /webapp/tests'
 		    }
 	    }
 
