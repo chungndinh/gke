@@ -10,11 +10,7 @@ pipeline {
 	}
 	
     stages {
-	    stage('Scm Checkout') {
-		    steps {
-			    checkout scm
-		    }
-	    }
+	    
 		stage('Test') {
 		    steps {
 			    echo "Testing..."
