@@ -15,7 +15,7 @@ pipeline {
 			    checkout scm
 		    }
 	    }
-	stage('Test') {
+		stage("Test") {
 		    steps {
 			    echo "Testing..."
 			    sh '/usr/local/bin/phpunit/phpunit --version'
