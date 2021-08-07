@@ -22,7 +22,7 @@ pipeline {
 				sh 'pwd'
 				sh 'ls -ltr'
 				sh 'cd webapp/'
-				sh '/usr/local/bin/phpunit/phpunit /tests'
+				sh '/usr/local/bin/phpunit/phpunit tests/'
 		    }
 	    }
 
