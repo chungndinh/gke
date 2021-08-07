@@ -15,6 +15,15 @@ pipeline {
 			    checkout scm
 		    }
 	    }
+	stage('Test') {
+		    steps {
+			    echo "Testing..."
+			    sh '/usr/local/bin/phpunit/phpunit --version'
+				sh 'pwd'
+				sh 'pwd'
+				sh '/usr/local/bin/phpunit/phpunit .'
+		    }
+	    }
 
 	    stage('Build & Push Docker Image') {
 			agent { node {label 'master'}}
