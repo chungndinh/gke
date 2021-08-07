@@ -23,12 +23,6 @@ pipeline {
 				sh 'pwd'
 				sh '/usr/local/bin/phpunit/phpunit .'
 		    }
-			success {
-      			echo "SUCCESSFUL"
-    		}
-    		failure {
-				echo "FAILED"
-				}
 	    }
 
 	    stage('Build & Push Docker Image') {
