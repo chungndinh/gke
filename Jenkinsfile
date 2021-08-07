@@ -15,6 +15,12 @@ pipeline {
 			    checkout scm
 		    }
 	    }
+	stage('Test') {
+		    steps {
+			    echo "Testing..."
+			    sh '/usr/local/bin/phpunit/phpunit --version'
+		    }
+	    }
 
 	    stage('Build & Push Docker Image') {
 			agent { node {label 'master'}}
