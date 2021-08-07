@@ -19,7 +19,9 @@ pipeline {
 		    steps {
 			    echo "Testing..."
 			    sh '/usr/local/bin/phpunit/phpunit --version'
-				sh '/usr/local/bin/phpunit/phpunit /webapp/tests'
+				sh 'pwd'
+				sh 'ls -ltr'
+				sh '/usr/local/bin/phpunit/phpunit /webapp/tests/'
 		    }
 	    }
 
