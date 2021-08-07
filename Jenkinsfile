@@ -15,7 +15,7 @@ pipeline {
 			    checkout scm
 		    }
 	    }
-	stage('Test') {
+		stage("Test") {
 		    steps {
 			    echo "Testing..."
 			    sh '/usr/local/bin/phpunit/phpunit --version'
@@ -23,6 +23,12 @@ pipeline {
 				sh 'pwd'
 				sh '/usr/local/bin/phpunit/phpunit .'
 		    }
+			success {
+      			echo "SUCCESSFUL"
+    		}
+    		failure {
+				echo "FAILED"
+				}
 	    }
 
 	    stage('Build & Push Docker Image') {
