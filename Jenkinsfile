@@ -54,6 +54,10 @@ pipeline {
 						step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'Deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 						echo "Deployment Finished ..."
 					  }
+					else
+					{
+						echo 'Only merge Master that deploy in GKE'
+					}
 				}
 			}
 			
